@@ -3,7 +3,7 @@ package trafficlight.ctrl;
 import trafficlight.gui.TrafficLightGui;
 import trafficlight.states.State;
 
-public class TrafficLightCtrl {
+public class TrafficLightCtrl{
 
     private State greenState;
 
@@ -19,13 +19,22 @@ public class TrafficLightCtrl {
 
     private boolean doRun = true;
 
-    public TrafficLightCtrl() {
+    private static final TrafficLightCtrl instance = new TrafficLightCtrl();
+
+    private TrafficLightCtrl() {
         super();
         initStates();
         gui = new TrafficLightGui(this);
         gui.setVisible(true);
         //TODO useful to update the current state
+        currentState.notifyObservers();
     }
+
+    public static TrafficLightCtrl getInstance(){
+        return instance;
+    }
+
+
 
     private void initStates() {
         greenState = new State() {
@@ -33,6 +42,8 @@ public class TrafficLightCtrl {
             public State getNextState() {
                 previousState = currentState;
                 //TODO useful to update the current state and the old one
+                yellowState.notifyObservers();
+                greenState.notifyObservers();
                 return yellowState;
             }
             @Override
@@ -46,6 +57,8 @@ public class TrafficLightCtrl {
             public State getNextState() {
                 previousState = currentState;
                 //TODO useful to update the current state and the old one
+                redState.notifyObservers();
+                yellowState.notifyObservers();
                 return yellowState;
             }
             @Override
@@ -60,10 +73,14 @@ public class TrafficLightCtrl {
                 if (previousState.equals(greenState)) {
                     previousState = currentState;
                     //TODO useful to update the current state and the old one
+                    yellowState.notifyObservers();
+                    redState.notifyObservers();
                     return redState;
                 }else {
                     previousState = currentState;
                     //TODO useful to update the current state and the old one
+                    yellowState.notifyObservers();
+                    redState.notifyObservers();
                     return greenState;
                 }
             }
