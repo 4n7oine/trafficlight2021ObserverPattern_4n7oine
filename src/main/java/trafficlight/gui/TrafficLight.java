@@ -6,6 +6,8 @@ import trafficlight.observer.Observer;
 import java.awt.*;
 import java.io.ObjectStreamConstants;
 
+//GIT REPO: https://github.com/4n7oine/trafficlight2021ObserverPattern_4n7oine
+
 public class TrafficLight extends Light implements Observer {
 
     public TrafficLight(Color color) {

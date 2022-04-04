@@ -4,6 +4,8 @@ package trafficlight.gui;
 import javax.swing.*;
 import java.awt.*;
 
+//GIT REPO: https://github.com/4n7oine/trafficlight2021ObserverPattern_4n7oine
+
 class Light extends JPanel {
     Color on;
     int radius = 40;

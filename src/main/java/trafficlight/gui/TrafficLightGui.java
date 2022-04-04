@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//GIT REPO: https://github.com/4n7oine/trafficlight2021ObserverPattern_4n7oine
+
 public class TrafficLightGui extends JFrame implements ActionListener {
 
     public static final String ACTION_COMMAND_STOP = "stop";

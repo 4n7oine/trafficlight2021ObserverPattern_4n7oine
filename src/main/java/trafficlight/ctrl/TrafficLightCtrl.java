@@ -3,6 +3,9 @@ package trafficlight.ctrl;
 import trafficlight.gui.TrafficLightGui;
 import trafficlight.states.State;
 
+
+//GIT REPO: https://github.com/4n7oine/trafficlight2021ObserverPattern_4n7oine
+
 public class TrafficLightCtrl{
 
     private State greenState;

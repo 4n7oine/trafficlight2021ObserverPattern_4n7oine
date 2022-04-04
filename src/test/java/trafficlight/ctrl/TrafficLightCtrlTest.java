@@ -18,9 +18,8 @@ class TrafficLightCtrlTest {
 
     @BeforeEach
     void setup(){
-        System.out.println("Call setup");
+        System.out.println("Initiate controler for test");
         TrafficLightCtrl ctrl = TrafficLightCtrl.getInstance();
-        System.out.println(ctrl.hashCode());
         ctrl.setPreviousState(firstPreviousState);
         ctrl.setCurrentState(firstCurrentState);
     }
