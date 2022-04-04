@@ -19,7 +19,7 @@ public class TrafficLightCtrl{
 
     private boolean doRun = true;
 
-    private static final TrafficLightCtrl instance = new TrafficLightCtrl();
+    private static TrafficLightCtrl instance;
 
     private TrafficLightCtrl() {
         super();
@@ -31,6 +31,10 @@ public class TrafficLightCtrl{
     }
 
     public static TrafficLightCtrl getInstance(){
+        if(instance==null){
+            instance = new TrafficLightCtrl();
+        }
+
         return instance;
     }
 
@@ -119,8 +123,25 @@ public class TrafficLightCtrl{
         System.exit(0);
     }
 
+    public State getCurrentState(){
+        return currentState;
+    }
+
+
+    public State getPreviousState(){
+        return previousState;
+    }
+
     public void nextState() {
         currentState = currentState.getNextState();
+    }
+
+    public void setCurrentState(State currentState) {
+        this.currentState = currentState;
+    }
+
+    public void setPreviousState(State previousState) {
+        this.previousState = previousState;
     }
 
     public void stop() {
